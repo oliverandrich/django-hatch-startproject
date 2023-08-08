@@ -16,7 +16,7 @@ dependencies = [
   "django-environ>=0.10.0",
   "django-htmx>=1.15.0",
   "django-rich>=1.6.0",
-  "django-tailwind-cli>=2.1",
+  "django-tailwind-cli>=2.2.3",
   "pytz",
   "whitenoise[brotli]>=6.5.0"
 ]
