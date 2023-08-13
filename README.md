@@ -23,8 +23,13 @@ Out of the box SQLite is configured, but you can easily activate MySQL or Postgr
 
 - django-types
 - model-bakery
+- pytest
+- pytest-cov
+- pytest-django
+- pytest-mock
 - pre-commit setup inspired by [Boost your Django DX](https://adamchainz.gumroad.com/l/byddx)
 - sane ruff configuration
+- syrupy for snapshot testing
 
 ## Install
 

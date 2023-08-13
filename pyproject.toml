@@ -35,7 +35,14 @@ path = "config/__version__.py"
 
 # Default environment
 [tool.hatch.envs.default]
-dependencies = ["django-types", "ipdb", "model-bakery"]
+dependencies = [
+  "django-types",
+  "ipdb",
+  "model-bakery",
+  "pytest",
+  "pytest-django",
+  "pytest-mock",
+]
 features = [
   # Uncomment the next line to add the MySQL dependencies
   # "mysql",
@@ -53,17 +60,39 @@ makemigrations = "manage.py makemigrations {args}"
 python = ["3.11", "3.12"]
 
 [tool.hatch.envs.test]
-dependencies = ["django-rich", "coverage[toml]"]
+dependencies = [
+  "pytest",
+  "pytest-django",
+  "pytest-cov",
+  "pytest-sugar",
+  "pytest-randomly",
+  "pytest-mock",
+  "syrupy"
+]
+
 
 [tool.hatch.envs.test.scripts]
-test = "manage.py test {args}"
-test-cov = "coverage run manage.py test {args}"
+test = "pytest --no-header {args}"
+test-cov = "pytest --cov {args}"
 cov-report = ["coverage combine", "coverage report"]
 cov = ["test-cov", "cov-report"]
 
 # Lint environment
 [tool.hatch.envs.lint]
-dependencies = ["pyright", "django-types", "curlylint", "black", "ruff", "pyupgrade", "django-upgrade"]
+dependencies = [
+    # Tools
+  "pyright",
+  "curlylint",
+  "black",
+  "ruff",
+  "pyupgrade",
+  "django-upgrade",
+  # Libraries / Typestubs
+  "django-types",
+  "pytest",
+  "pytest-django",
+  "pytest-mock",
+]
 
 [tool.hatch.envs.lint.scripts]
 run-pyright = "pyright {args:.}"
@@ -87,6 +116,8 @@ skip-string-normalization = true
 # Pyright
 [tool.pyright]
 typeCheckingMode = "basic"
+venvPath = ".venv"
+venv = "{{project_name}}"
 
 # Ruff
 [tool.ruff]
