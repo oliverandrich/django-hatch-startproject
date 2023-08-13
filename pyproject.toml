@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "{{project_name}}"
+name = "{{ project_name }}"
 dynamic = ["version"]
 description = ""
 readme = "README.md"
@@ -15,7 +15,6 @@ dependencies = [
   "django-browser-reload>=1.9.0",
   "django-environ>=0.10.0",
   "django-htmx>=1.15.0",
-  "django-rich>=1.6.0",
   "django-tailwind-cli>=2.2.3",
   "pytz",
   "whitenoise[brotli]>=6.5.0"
@@ -31,7 +30,7 @@ postgres = [
 ]
 
 [tool.hatch.version]
-path = "config/__version__.py"
+path = "{{ project_name }}/__version__.py"
 
 # Default environment
 [tool.hatch.envs.default]

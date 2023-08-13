@@ -71,7 +71,9 @@ INSTALLED_APPS += [
 ]
 
 # Our apps
-INSTALLED_APPS += []
+INSTALLED_APPS += [
+    "{{ project_name }}"
+]
 
 # Middleware definitions
 # https://docs.djangoproject.com/en/4.1/topics/http/middleware/
@@ -90,14 +92,14 @@ MIDDLEWARE = [
 
 # A string representing the full Python import path to your root URLconf.
 # https://docs.djangoproject.com/en/4.1/ref/settings/#root-urlconf
-ROOT_URLCONF = "config.urls"
+ROOT_URLCONF = "{{ project_name }}.urls"
 
 # A list containing the settings for all template engines to be used with Django.
 # https://docs.djangoproject.com/en/4.1/ref/settings/#templates
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -117,7 +119,7 @@ TEMPLATES = [
 # The full Python path of the WSGI application object that Django`s built-in servers
 # (e.g. runserver) will use.
 # https://docs.djangoproject.com/en/4.1/ref/settings/#wsgi-application
-WSGI_APPLICATION = "config.wsgi.application"
+WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -160,7 +162,6 @@ LANGUAGES = [
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
-LOCALE_PATHS = [BASE_DIR / "locale/"]
 
 # Static files (SCSS, CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -193,10 +194,6 @@ CACHES = {"default": env.cache_url("CACHE_URL")}
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# django-rich Test Runner
-# https://github.com/adamchainz/django-rich#django_richtestrichrunner
-TEST_RUNNER = "django_rich.test.RichRunner"
 
 # Our settings
 ADMIN_URL = env("ADMIN_URL")
