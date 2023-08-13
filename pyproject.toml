@@ -116,8 +116,6 @@ skip-string-normalization = true
 # Pyright
 [tool.pyright]
 typeCheckingMode = "basic"
-venvPath = ".venv"
-venv = "{{project_name}}"
 
 # Ruff
 [tool.ruff]
